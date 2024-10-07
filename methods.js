@@ -41,3 +41,9 @@ class Person {
     }
 }
 
+// Create an instance of Person
+const person1 = new Person("polinmi", 20, "Female");
+
+// Calls the methods
+person1.displayInfo();
+person1.displayViaHTML(); // Call this to display in HTML
