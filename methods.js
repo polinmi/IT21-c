@@ -19,4 +19,25 @@ class Person {
         this.gender = gender;
     }
 
+    // Solution 1: Display via console.log
+    displayInfo() {
+        console.log("Name: " + this.name);
+        console.log("Age: " + this.age);
+        console.log("Gender: " + this.gender);
+    }
+
+    // Solution 2: Display via HTML
+    displayViaHTML() {
+        const personElement = document.getElementById('person1');
+        if (personElement) {
+            personElement.innerHTML = `
+                <strong>Name:</strong> ${this.name}<br>
+                <strong>Age:</strong> ${this.age}<br>
+                <strong>Gender:</strong> ${this.gender}
+            `;
+        } else {
+            console.error('Element with ID "person1" not found.');
+        }
+    }
 }
+
