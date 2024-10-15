@@ -4,4 +4,11 @@ class ChartCreator {
         this.chartData = null;
     }
 
+    async init() {
+        await this.fetchData();
+        if (this.chartData) {
+            this.createCharts();
+        }
+    }
+
 }
