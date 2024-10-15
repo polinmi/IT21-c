@@ -23,4 +23,42 @@ class ChartCreator {
         }
     }
 
+    createCharts() {
+        throw new Error('createCharts() must be implemented in subclasses');
+    }
 }
+
+class LineChart extends ChartCreator {
+    constructor(dataUrl) {
+        super(dataUrl);
+        this.lineCtx = document.getElementById('lineChart');
+    }
+
+    createCharts() {
+        this.createLineChart();
+    }
+
+    createLineChart() {
+        new Chart(this.lineCtx, {
+            type: 'line',
+            data: {
+                labels: this.chartData.labels,
+                datasets: [{
+                    label: 'Line Chart',
+                    data: this.chartData.data,
+                    fill: false,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+}
+
