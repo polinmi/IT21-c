@@ -15,7 +15,7 @@ class ChartCreator {
         try {
             const response = await fetch(this.dataUrl);
             if (!response.ok) {
-                throw new Error('Network respons- was not ok ' + response.statusText);
+                throw new Error('Network response was not ok ' + response.statusText);
             }
             this.chartData = await response.json();
         } catch (error) {
@@ -23,4 +23,7 @@ class ChartCreator {
         }
     }
 
+    createCharts() {
+        throw new Error('createCharts() must be implemented in subclasses');
+    }
 }
